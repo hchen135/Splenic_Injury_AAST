@@ -1,0 +1,22 @@
+_BASE_: "../configs/COCO-Detection/faster_rcnn_X_101_32x8d_FPN_3x.yaml"
+MODEL:
+  ANCHOR_GENERATOR:
+    SIZES: [[4],[8],[32], [64], [128]]  # One size for each in feature map
+    ASPECT_RATIOS: [[0.5, 1.0, 2.0]]  # Three aspect ratios (same for all in feature maps)
+  ROI_HEADS:
+    NUM_CLASSES: 1
+  WEIGHTS: "./pretrained_model/model_final_68b088.pkl"
+DATASETS:
+  TRAIN:
+  - spleen_ab_train_fold0
+  TEST:
+  - spleen_ab_test_fold0
+INPUT:
+  FORMAT: "RGB"
+  CROP:
+    ENABLED: False
+SOLVER:
+  IMS_PER_BATCH: 8
+  MAX_ITER: 30000
+  STEPS:
+  - 15000
