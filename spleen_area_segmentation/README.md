@@ -8,6 +8,8 @@ We apply teacher-student model to segment the splenic areas in the internal data
 
 We first copy the raw data into a folder of this project by ``data/paste_data.py``.
 
+For external data, if it is flipped, please use ``data/flip.py`` to flip them back.
+
 ### Training
 
 We first need to train the model with external dataset alone by
